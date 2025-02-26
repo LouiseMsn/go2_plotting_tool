@@ -36,7 +36,7 @@ while (True):
         filename = input("Name of the csv file to plot:") 
 
     # Load data
-    data = pd.read_csv(filename + ".csv")
+    data = pd.read_csv(filename)
 
     # Plot
     fig,(A1,A2,A3)= plt.subplots(3,1)
@@ -54,18 +54,13 @@ while (True):
     A3.plot(data['Time'], data['Vel Z'], label='v (m/s)',  marker='.',markersize='5',linewidth=1,color='royalblue')
     A3.plot(data['Time'], data['Pose Z'], label='p (m)',   marker='.',markersize='5',linewidth=1,color='deepskyblue')
 
-    # Reduce size of ticks numbers
-    A1.ticklabel_format(axis='x', style='scientific', scilimits=(0,0))
-    A2.ticklabel_format(axis='x', style='scientific', scilimits=(0,0))
-    A3.ticklabel_format(axis='x', style='scientific', scilimits=(0,0))
-
-    A1.set_xlabel('Time')
+    A1.set_xlabel('Time (s)')
     A1.set_ylabel('X Value')
 
-    A2.set_xlabel('Time')
+    A2.set_xlabel('Time (s)')
     A2.set_ylabel('Y Value')
 
-    A3.set_xlabel('Time')
+    A3.set_xlabel('Time (s)')
     A3.set_ylabel('Z Value')
 
     A1.legend()
